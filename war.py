@@ -1,6 +1,7 @@
 #imports
 import turtle as trtl
 import random
+import keyboard
 
 #setup
 drawer = trtl.Turtle()
@@ -74,18 +75,51 @@ ace_spades = "ace_of_spades.gif"
 wn.addshape(ace_spades)
 
 #deal cards
-ranks = [two_spades, three_spades, four_spades]
-card_num = [2, 3, 4]
+ranks = [two_spades, three_spades, four_spades, five_spades]
+num_cards = [2, 3, 4, 5]
+
 
  #get integers to equal card (2 = two_spades, etc.)
 
-card_num = ranks
-print(card_num)
-
+num_cards = ranks
 
 #deal function
+#player cards
+drawer3.penup()
+drawer3.goto(-100, 0)
+def main():
+    suite = random.choice(num_cards)
+    drawer3.shape(suite)
+    num_cards.remove(suite)
+    print(num_cards)
+
+drawer4.penup()
+drawer4.goto(100, 0)
+def main2():
+    suite2 = random.choice(num_cards)
+    drawer4.shape(suite2)
+    num_cards.remove(suite2)
+    print(num_cards)
 
 
+wn.onkeypress(main, "a")
+wn.listen()
+
+#computer cards
+wn.onkeypress(main2, "a")
+wn.listen()
+
+'''i = 1
+while i < 2:
+  main2()
+  i += 1'''
+
+
+#compare values
+'''if ( main > main2):
+   print ("Line 1 - a is equal to b")
+else:
+   print ("Line 1 - a is not equal to b")'''
 
 
 wn.mainloop()
